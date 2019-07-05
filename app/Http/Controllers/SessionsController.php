@@ -14,7 +14,7 @@ class SessionsController extends Controller
    			'email'=>'required|email|max:255',
    			'password'=>'required',
    		]);
-   		if(Auth::attempt($v_res)){
+   		if(Auth::attempt($v_res,$request->has('remember'))){
    			//登陆成功的操作
    			session()->flash('success',"欢迎回来!");
    			return redirect()->route('users.show',[Auth::user()]);
@@ -26,6 +26,8 @@ class SessionsController extends Controller
    		return;
    }
    public function destroy(){
-   	
+   		Auth::logout();
+   		session()->flash("success","您已成功退出！");
+   		return redirect("login");
    }
 }
