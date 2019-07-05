@@ -19,3 +19,9 @@ Route::get('/help','StaticPagesController@help')->name('help');
 Route::get('/about','StaticPagesController@about')->name('about');
 Route::get('signup','UsersController@create')->name('signup');
 Route::resource('users','UsersController');
+//显示登陆
+Route::get('login','SessionsController@create')->name('login');
+//创建会话
+Route::post('login','SessionsController@store')->name('login');
+//销毁会话
+Route::delete('logout','SessionsController@destroy')->name('logout');
