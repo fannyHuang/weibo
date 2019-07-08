@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   		<div class="container">
-  			<a class="navbar-brand" href="{{ route('home') }}">weibo App</a>
+  			<a class="navbar-brand" href="{{ route('home') }}">weibo</a>
   			<ul class="navbar-nav justify-content-end">
   					<!-- //判断是否登陆 -->
   			@if(Auth::check())
-  				<li class="nav-item"><a class="nav-link" href="#">用户列表</a></li>
+  				<li class="nav-item"><a class="nav-link" href="{{route('users.index')}}">用户列表</a></li>
   				<li class="nav-item dropdown">
   					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   						{{Auth::user()->name}}
@@ -24,7 +24,7 @@
   				</li>
   			@else
 	  			<li class="nav-item"><a class="nav-link" herf="{{ route('help') }}">帮助</a></li>
-	  			<li class="nav-item"><a class="nav-link" href="#">登录</a></li>	
+	  			<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>	
   			@endif
   			</ul>
   				
